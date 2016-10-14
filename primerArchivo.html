@@ -7,7 +7,8 @@
     <!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}}  -->
     <ion-header-bar class="bar-positive">
         <buttons>
-            <button class="button button-clear"> <i class="icon ion-star">
+            <button class="button button-clear" ng-click="agregar()"> <i class="icon ion-star">
+               <!-- Boton para añadir lso datos a la lista para eso se usa la funcion agregar -->
                 </i> </button>
         </buttons>
         <h1 class="title"> Sitios</h1> </ion-header-bar>
@@ -18,10 +19,9 @@
                     <label>
                         <input type="text" placeholder="id" ng-model="sitio.id" class="ion-input"> </label>
                 </ion-item>
-                
                 <ion-item>
                     <label>
-                        <input type="text" placeholder="nombre" ng-model="sitio.nombre" class="ion-input"> </label>
+                        <input type="text" placeholder="Nombre" ng-model="sitio.nombre" class="ion-input"> </label>
                     <!-- el ng model se lo asocia a un atributo de dicho objeto en este caso sitio-->
                 </ion-item>
                 <ion-item>
@@ -35,8 +35,20 @@
     <script type="text/javascript">
         var miapp = angular.module('miapp', ['ionic']).controller('control1', function ($scope) {
             $scope.sitio = {
-                id: '', nombre:'',direccion:''
+                id: ''
+                , nombre: ''
+                , direccion: ''
             };
-        }); //<!-- la funcion vva a manejar todo el programa -->
+            //ahora se va a definir una lista
+            $scope.lista = [];
+            $scope.agregar = function () { //cada que pulso en la estrella, que es agregar llama a esta funcion
+                //para añadir el sitio a la lista debo agregarlo primero
+                $scope.lista.push({
+                        id: $scope.sitio.id
+                        , nombre: $scope.sitio.nombre
+                        , direccion: $scope.sitio.nombre
+                    }) //Creo un nuevo objeto y le asigno los valores de lo que creamos
+            }
+        });
     </script>
 </body>
