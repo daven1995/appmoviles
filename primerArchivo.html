@@ -31,6 +31,15 @@
                 </ion-item>
             </ion-list>
         </form>
+        <table>
+            <tr ng-repeat="item in lista">
+                <!--utilizo una directiva de Ionic para desplegar la lista-->
+                <td> {{item.id}} </td>
+                <td> {{item.nombre}} </td>
+                <td> {{item.direccion}} </td>
+                 <!--td es para darle orden y vamos asignando la lista-->
+            </tr>
+        </table>
     </ion-content>
     <script type="text/javascript">
         var miapp = angular.module('miapp', ['ionic']).controller('control1', function ($scope) {
@@ -52,3 +61,5 @@
         });
     </script>
 </body>
+<!--ng-model para cajas de texto
+ng-repeat para repetir un arreglo, como un for-->
