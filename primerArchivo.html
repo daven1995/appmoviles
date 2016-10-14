@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="miapp">
+<link rel="stylesheet" href="ionic/css/ionic.min.css">
+<script src="ionic/js/ionic.bundle.js"></script>
+
+<body ng-controller="control1">
+    <!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}}  -->
+    <ion-header-bar class="bar-positive">
+        <buttons>
+            <button class="button button-clear"> <i class="icon ion-star">
+                </i> </button>
+        </buttons>
+        <h1 class="title"> Sitios</h1> </ion-header-bar>
+    <ion-content>
+        <form>
+            <ion-list>
+                <ion-item>
+                    <label>
+                        <input type="text" placeholder="id" ng-model="sitio.id" class="ion-input"> </label>
+                </ion-item>
+                
+                <ion-item>
+                    <label>
+                        <input type="text" placeholder="nombre" ng-model="sitio.nombre" class="ion-input"> </label>
+                    <!-- el ng model se lo asocia a un atributo de dicho objeto en este caso sitio-->
+                </ion-item>
+                <ion-item>
+                    <label>
+                        <input type="text" placeholder="direccion" ng-model="sitio.direccion" class="ion-input"> </label>
+                    <!-- el ng model se lo asocia a un atributo de dicho objeto en este caso sitio-->
+                </ion-item>
+            </ion-list>
+        </form>
+    </ion-content>
+    <script type="text/javascript">
+        var miapp = angular.module('miapp', ['ionic']).controller('control1', function ($scope) {
+            $scope.sitio = {
+                id: '', nombre:'',direccion:''
+            };
+        }); //<!-- la funcion vva a manejar todo el programa -->
+    </script>
+</body>
