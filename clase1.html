@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="miapp">
+<link rel="stylesheet" href="ionic/css/ionic.min.css">
+<script src="ionic/js/ionic.bundle.js"></script>
+
+<body ng-controller="control1">
+    <!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}}  -->
+    <ion-header-bar class="bar-positive">
+        <buttons>
+            <button class="button button-clear"><!--class="button" se hace boton todo-->
+                <!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}} 
+            y tenemos el metodo imprimir1 llamado por el ng click-->
+               
+                <i class="icon ion-star"><!--Es el icono-->
+                </i> 
+               </button>
+        </buttons>
+        <h1 class="title"> Sitios</h1>
+       <!-- <buttons>
+            <button class="button" ng-click="imprimir2()"//>class="button" se hace boton todo
+                <i class="icon ion-pizza">
+                </i> 
+                Quitar usuario
+            </button>
+        </buttons>-->
+    </ion-header-bar>
+    <ion-content> {{mensaje}}</ion-content>
+    <script type="text/javascript">
+        var mia = angular.module('miapp', ['ionic']) // <!-- angular.module('miapp',['ionic']) 
+            //todo esto es el objeto mia  angular.module('nombre de la aplicacion', el arreglo de strings es para indicar que queremos que funcione ionic)
+            //Objetos tienen atributosy metodos-->
+            //.controller('control1', peluche); //esto va tomando el objeto de arriba.. metodo que utiliza como argumento otro metodo si hago asi controller('control1',function ( $scope){});
+            //controller('nombre del controlador' , funcion).. la funcion es donde voy a envolver las variables y los metodos
+            .controller('control1', function ($scope) {
+                $scope.mensaje = '';
+                $scope.imprimir1 = function () {
+                    $scope.mensaje = 'Estamos abiertos';
+                };
+        $scope.imprimir2 = function () {
+                    $scope.mensaje = 'Estamos cerrados';
+                }
+            }); //<!-- la funcion vva a manejar todo el programa -->
+    </script>
+</body>
