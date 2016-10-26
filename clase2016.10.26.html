@@ -33,23 +33,30 @@
          })*/
         function david($scope) {
             $scope.num = 1;
+            $scope.ubicar=function(){
+                
+            }
             $scope.prueba = function () {
                 $scope.num++;
-                var ll = new google.maps.LatLng(0.132, -43.48);
+                var ll = new google.maps.LatLng(0.196, -78.46);
                 var opciones = {
                     center: ll
-                    , zoom: 10
+                    , zoom: 5
                     , mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 var etiqueta = document.getElementById('miMapa');
                 var mapa = new google.maps.Map(etiqueta, opciones);
-                /*var marcador = new google.maps.marker {
+                var marcador = new google.maps.Marker (
                     {
                         position: ll
-                        , map: null
+                        , map: mapa
                         , graggable: true
                     }
-                };*/
+                );
+
+                function ubicacion(evento) {
+                    marcador.setPosition(new google.maps.LatLng(evento.latLng.lat(), evento.latLng.lng()));
+                };
             }
         };
     </script>
