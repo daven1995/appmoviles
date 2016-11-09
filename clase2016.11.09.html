@@ -1,0 +1,17 @@
+<html ng-app="miapp">
+<link rel="stylesheet" href="ionic/css/ionic.min.css">
+<script src="ionic/js/ionic.bundle.js"></script>
+<body ng-controller="control1"><!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}}  -->
+	<ion-header-bar>
+		<h1 class="title"> {{titulo}}</h1>
+	</ion-header-bar>
+	<script type="text/javascript">
+		var mia=angular.module('miapp',['ionic'])// <!-- angular.module('miapp',['ionic']) todo esto es el objeto mia  
+		//Objetos tienen atributosy metodos-->
+		.controller('control1',peluche); //esto va tomando el objeto de arriba.. metodo que utiliza como argumento otro metodo si hago asi controller('control1',function ( $scope){});
+		function peluche( $scope){
+				$scope.titulo='Mi primera aplicacion';
+
+		};//<!-- la funcion vva a manejar todo el programa -->
+	</script>
+</body>

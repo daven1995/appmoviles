@@ -33,9 +33,6 @@
          })*/
         function david($scope) {
             $scope.num = 1;
-            $scope.ubicar=function(){
-                
-            }
             $scope.prueba = function () {
                 $scope.num++;
                 var ll = new google.maps.LatLng(0.196, -78.46);
@@ -46,13 +43,11 @@
                 };
                 var etiqueta = document.getElementById('miMapa');
                 var mapa = new google.maps.Map(etiqueta, opciones);
-                var marcador = new google.maps.Marker (
-                    {
-                        position: ll
-                        , map: mapa
-                        , graggable: true
-                    }
-                );
+                var marcador = new google.maps.Marker({
+                    position: ll
+                    , map: mapa
+                    , graggable: true
+                });
 
                 function ubicacion(evento) {
                     marcador.setPosition(new google.maps.LatLng(evento.latLng.lat(), evento.latLng.lng()));
