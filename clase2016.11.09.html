@@ -1,57 +1,55 @@
-<!DOCTYPE html>
-<html ng-app="mapa">
+<html ng-app="miapp">
 
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="ionic/css/ionic.min.css">
     <script src="ionic/js/ionic.bundle.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
 </head>
 
-<body ng-controller="control1">
+<body ng-controller="controll">
     <ion-header-bar class="bar-positive">
-        <h1 class="title"> Hola</h1> </ion-header-bar>
+        <buttons>
+            <button class="button button-clear" ng-click="ubicacion()"> <i class="ion-ios-location">
+           
+
+              </i> </button>
+
+               <button class="button button-clear" ng-click="mostrarMapa()"> <i class="ion-map">
+               </i></button>
+            <hi class="title">Hola</hi>
+        </buttons>
+    </ion-header-bar> 
     <ion-content>
-        <map></map> {{texto}} {{num}}
-        <div id='miMapa' style="width:100%;height:500px"></div>
-        <button ng-click="prueba()">Prueba</button>
+        {{latitud}}
+        {{longitud}}
     </ion-content>
     <script>
-        var mia = angular.module('mapa', ['ionic']).controller('control1', david); //<!-- la funcion vva a manejar todo el programa -->
-        /* .directive('map', function () {
-             var obj = {
-                 restrict: 'E'
-                 , link: function (scope, elemento, atributo) {
-                     var opciones = {};
+        var miapp = angular.module('miapp', ['ionic']).controller('controll', function ($scope,$timeout) {
+            $scope.latitud="Este es el mensaje";
+            $scope.ubicacion=function(){
+                window.navigator.geolocation.getCurrentPosition(
+                    function(geo){
+                        var latitud=geo.coords.latitude;
+                        $timeout(function() {
+                            $scope.latitud=latitud;
+                        }, 200);//Esperar 1000 ms, es decir un segundo para que despues de ese tiempo se asigne al scope.latitud el latitud del ion-content
+                        
+                        var longitud=geo.coords.longitude;
+                        $timeout(function() {
+                            $scope.longitud=longitud;
+                        }, 200);
 
-                     function inicio() {
-                         return 'Hola amiguitos'
-                     };
-                     elemento.html(inicio());
-                 }
-             };
-             return obj;
-         })*/
-        function david($scope) {
-            $scope.prueba = function () {
-                var ll = new google.maps.LatLng(0.196, -78.46);
-                var opciones = {
-                    center: ll
-                    , zoom: 5
-                    , mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var etiqueta = document.getElementById('miMapa');
-                var mapa = new google.maps.Map(etiqueta, opciones);
-                var marcador = new google.maps.Marker({
-                    position: ll
-                    , map: mapa
-                    , graggable: true
-                });
+                    }
+                );
 
-                function ubicacion(evento) {
-                    marcador.setPosition(new google.maps.LatLng(evento.latLng.lat(), evento.latLng.lng()));
-                };
             }
-        };
+
+            $scope.mostrarMapa=function(){
+                alert('Alerta mostrarMapa');
+            }
+
+
+        })
     </script>
 </body>
 
