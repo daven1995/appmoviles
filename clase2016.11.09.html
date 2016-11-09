@@ -1,17 +1,58 @@
-<html ng-app="miapp">
-<link rel="stylesheet" href="ionic/css/ionic.min.css">
-<script src="ionic/js/ionic.bundle.js"></script>
-<body ng-controller="control1"><!-- Este controlador le va a permitir a nuestro programa definir variables dentro de {{}}  -->
-	<ion-header-bar>
-		<h1 class="title"> {{titulo}}</h1>
-	</ion-header-bar>
-	<script type="text/javascript">
-		var mia=angular.module('miapp',['ionic'])// <!-- angular.module('miapp',['ionic']) todo esto es el objeto mia  
-		//Objetos tienen atributosy metodos-->
-		.controller('control1',peluche); //esto va tomando el objeto de arriba.. metodo que utiliza como argumento otro metodo si hago asi controller('control1',function ( $scope){});
-		function peluche( $scope){
-				$scope.titulo='Mi primera aplicacion';
+<!DOCTYPE html>
+<html ng-app="mapa">
 
-		};//<!-- la funcion vva a manejar todo el programa -->
-	</script>
+<head>
+    <link rel="stylesheet" href="ionic/css/ionic.min.css">
+    <script src="ionic/js/ionic.bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
+</head>
+
+<body ng-controller="control1">
+    <ion-header-bar class="bar-positive">
+        <h1 class="title"> Hola</h1> </ion-header-bar>
+    <ion-content>
+        <map></map> {{texto}} {{num}}
+        <div id='miMapa' style="width:100%;height:500px"></div>
+        <button ng-click="prueba()">Prueba</button>
+    </ion-content>
+    <script>
+        var mia = angular.module('mapa', ['ionic']).controller('control1', david); //<!-- la funcion vva a manejar todo el programa -->
+        /* .directive('map', function () {
+             var obj = {
+                 restrict: 'E'
+                 , link: function (scope, elemento, atributo) {
+                     var opciones = {};
+
+                     function inicio() {
+                         return 'Hola amiguitos'
+                     };
+                     elemento.html(inicio());
+                 }
+             };
+             return obj;
+         })*/
+        function david($scope) {
+            $scope.prueba = function () {
+                var ll = new google.maps.LatLng(0.196, -78.46);
+                var opciones = {
+                    center: ll
+                    , zoom: 5
+                    , mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var etiqueta = document.getElementById('miMapa');
+                var mapa = new google.maps.Map(etiqueta, opciones);
+                var marcador = new google.maps.Marker({
+                    position: ll
+                    , map: mapa
+                    , graggable: true
+                });
+
+                function ubicacion(evento) {
+                    marcador.setPosition(new google.maps.LatLng(evento.latLng.lat(), evento.latLng.lng()));
+                };
+            }
+        };
+    </script>
 </body>
+
+</html>
