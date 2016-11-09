@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="ionic/css/ionic.min.css">
     <script src="ionic/js/ionic.bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
 </head>
 
 <body ng-controller="controll">
@@ -20,9 +21,12 @@
         </buttons>
     </ion-header-bar> 
     <ion-content>
-        {{latitud}}
-        {{longitud}}
-    </ion-content>
+    
+   </ion-content>
+   <ion-footer-bar  class="bar-positive">
+        <input type="text" name="" ng-model="latitud">
+        <input type="text" name="" ng-model="longitud">
+   </ion-footer-bar>
     <script>
         var miapp = angular.module('miapp', ['ionic']).controller('controll', function ($scope,$timeout) {
             $scope.latitud="Este es el mensaje";
@@ -30,15 +34,11 @@
                 window.navigator.geolocation.getCurrentPosition(
                     function(geo){
                         var latitud=geo.coords.latitude;
+                         var longitud=geo.coords.longitude;
                         $timeout(function() {
                             $scope.latitud=latitud;
-                        }, 200);//Esperar 1000 ms, es decir un segundo para que despues de ese tiempo se asigne al scope.latitud el latitud del ion-content
-                        
-                        var longitud=geo.coords.longitude;
-                        $timeout(function() {
                             $scope.longitud=longitud;
-                        }, 200);
-
+                        }, 1000);//Esperar 1000 ms, es decir un segundo para que despues de ese tiempo se asigne al scope.latitud el latitud del ion-content
                     }
                 );
 
