@@ -1,0 +1,35 @@
+<html ng-app="appCANVAS">
+<head>
+	<meta charset="utf-8">
+	<link href="css/ionic.min.css" rel="stylesheet">
+	<script src="js/ionic.bundle.js"></script>
+</head>
+		<button onclick="dibujar()">DIBUJAR</button>
+		<button onclick="generarPNG()">GENERAR</button>
+		<button onclick="generarPNG()">CARGAR</button>
+		<canvas id="miCanvas"></canvas>
+		<img src="" id="miImagen">
+<script>
+		
+function generarPNG(){
+		var lienzo=document.getElementById("miCanvas");
+		var imagen=document.getElementById("miImagen")
+		imagen.src=lienzo.toDataURL("image/png");
+		}	
+		
+function dibujar(){
+		var lienzo=document.getElementById('miCanvas');
+	
+		var ctx=lienzo.getContext('2d');
+		ctx.fillStyle="rgb(255,255,0)";
+		ctx.fillRect(10,10,100,100);
+		ctx.fillStyle="rgb(0,255,0)";
+		ctx.fillRect(50,50,100,100);
+		
+		}	
+
+function cargarImagen(){
+		
+		}			
+</script>
+</html>

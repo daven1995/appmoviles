@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="miapp">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="ionic/css/ionic.min.css">
+    <script src="ionic/js/ionic.bundle.js"></script>
+   </head>
+
+<body ng-controller="controll">
+    <input type="file" accept="image/*" id="fi"onchange="abrir(event)">
+    <input type="image" id="salida">
+ 
+        {{texto}} {{num}}
+        
+    
+
+    <script>
+        var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope) {
+            abrir=function(event){
+                target=document.getElementById('fi');
+                var reader =new FileReader();
+                reader.onload=function(){
+                    var salida=document.getElementById('salida');
+                    salida.src=reader.result;                }
+                    
+            
+            reader.readAsDataURL(target.files[0]);
+           }});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<html ng-app="miapp">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="ionic/css/ionic.min.css">
+    <script src="ionic/js/ionic.bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
+</head>
+
+<body ng-controller="controll">
+    <canvas id="miCanvas"></canvas>
+    <img src="" id="miImagen">
+    <img src="pio.png" id="miImagen2">
+    <button onclick="cargar()">Dibujar</button>
+    <button onclick="generarPNG() ">Generar PNG</button>
+    <button onclick="borrar() ">Borrar</button>
+
+    <script>
+        var miapp = angular.module('miapp', ['ionic']).controller('controll', function ($scope,$timeout) {
+            $scope.dibujar=function(){
+                var a=document.getElementById('miCanvas');
+                var ctx=a.getContext('2d');
+                ctx.fillStyle="rgb(255,255,200)";
+                ctx.fillRect(20, 20, 100, 100);
+            }
+
+            function generarPNG() {
+            var lienzo = document.getElementById('micanvas');
+            var imagen = document.getElementById('miimagen');
+            imagen.src = lienzo.toDataURL("imagen/png");
+        }
+        function borrar(){
+            var canvas=document.getElementById('miCanvas');
+            canvas.width=canvas.width;
+        }
+        function cargar(){
+            var c=document.getElementById('miCanvas');
+            var d=document.getElementById('miImagen2');
+    }
+
+
+        })
+    </script>
+</body>
+
+</html>
