@@ -3,18 +3,27 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="ionic/css/ionic.min.css">
+    <link rel="stylesheet" href="">
     <script src="ionic/js/ionic.bundle.js"></script>
    </head>
 
 <body ng-controller="controll">
-   {{"Hola"}};
+	{{'hola'}}
+   {{dato.resultado}}
+   {{x}}
    <button ng-click="enviar()">Enviar</button>
 
     <script>
        var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$http) { 
-       		var dato={resultado:123};
+       		$scope.dato={resultado:123};
+       		$scope.x=0;
+       		$scope.enviar=function(){
+       			$http.post('/miservicio.php',$scope.dato)
+       			.then(function(res){
+       				$scope.x=(res.data.respuesta);
+       			});
 
+       		};
 
        } ) ;
    </script>
