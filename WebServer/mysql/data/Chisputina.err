@@ -1,0 +1,20 @@
+2016-11-23 12:13:18 18056 [Note] Plugin 'FEDERATED' is disabled.
+2016-11-23 12:13:19 18056 [Note] InnoDB: The InnoDB memory heap is disabled
+2016-11-23 12:13:19 18056 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2016-11-23 12:13:19 18056 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2016-11-23 12:13:19 18056 [Note] InnoDB: Not using CPU crc32 instructions
+2016-11-23 12:13:19 18056 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2016-11-23 12:13:19 18056 [Note] InnoDB: Completed initialization of buffer pool
+2016-11-23 12:13:19 18056 [Note] InnoDB: Setting log file D:\Documentos\Otros David\EPN - Codigos\Aplicaciones Moviles\appmoviles\WebServer\mysql\data\ib_logfile101 size to 5 MB
+2016-11-23 12:13:20 18056 [Note] InnoDB: Setting log file D:\Documentos\Otros David\EPN - Codigos\Aplicaciones Moviles\appmoviles\WebServer\mysql\data\ib_logfile1 size to 5 MB
+2016-11-23 12:13:21 18056 [Note] InnoDB: Renaming log file D:\Documentos\Otros David\EPN - Codigos\Aplicaciones Moviles\appmoviles\WebServer\mysql\data\ib_logfile101 to D:\Documentos\Otros David\EPN - Codigos\Aplicaciones Moviles\appmoviles\WebServer\mysql\data\ib_logfile0
+2016-11-23 12:13:21 18056 [Warning] InnoDB: New log files created, LSN=1626134
+2016-11-23 12:13:21 18056 [Note] InnoDB: Highest supported file format is Barracuda.
+2016-11-23 12:13:25 18056 [Note] InnoDB: 128 rollback segment(s) are active.
+2016-11-23 12:13:25 18056 [Note] InnoDB: Waiting for purge to start
+2016-11-23 12:13:25 18056 [Note] InnoDB: 5.6.13 started; log sequence number 1626636
+2016-11-23 12:13:25 18056 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 2543eb02-b1a0-11e6-9920-a0d3c1541201.
+2016-11-23 12:13:26 18056 [Note] Server hostname (bind-address): '*'; port: 3307
+2016-11-23 12:13:26 18056 [Note] IPv6 is available.
+2016-11-23 12:13:26 18056 [Note]   - '::' resolves to '::';
+2016-11-23 12:13:26 18056 [Note] Server socket created on IP: '::'.
