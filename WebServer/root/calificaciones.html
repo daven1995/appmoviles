@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="miapp">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="ionic/css/ionic.min.css">
+    <script src="ionic/js/ionic.bundle.js"></script>
+  </head>
+
+  <body ng-controller="controll">
+  	<ion-header-bar  class="bar-positive">
+     <h1 class="title">Sistema de Califiaciones</h1>
+    </ion-header-bar>
+
+    <ion-content>
+      <form>
+        <ion-list>
+          <label class="item item-input item-stached-label">
+            <input type="text" name="estudiante" ng-model="formulario.estudiante" ng-change="epredictivo()" placeholder="Codigo del estudiante">
+          </label>
+          <label class="item item-input item-stached-label">
+            <input type="text" name="materia" ng-model="formulario.materia" ng-change="mpredictivo()" placeholder="Materia">
+          </label>
+          <label class="toggle">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </ion-list>
+      </form>
+
+    </ion-content>
+
+    <ion-footer-bar   class="bar-positive">
+      <div class="buttons" ng-click="limpiar()">
+        <buttons class="button">Limpiar</buttons>
+      </div>
+
+      <h1 class="title"> -----</h1>
+
+      <div class="buttons" ng-click="buscar()">
+        <button class="button">Buscar</button>
+      </div>
+    </ion-footer-bar>
+
+    <script>
+       var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$http) { 
+         $scope.dato={resultado:123};
+         $scope.x=0;
+         $scope.limpiar=function(){
+          alert('Alerta Limpiar');
+         }
+         $scope.enviar=function(){
+          $http.post('/miservicio.php',$scope.dato)
+          .then(function(res){
+           $scope.x=(res.data.respuesta);
+
+         });
+
+        };
+
+      } ) ;
+    </script>
+  </body>
+</html>

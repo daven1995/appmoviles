@@ -1,32 +1,32 @@
-<!DOCTYPE html>
-<html ng-app="miapp">
+	<!DOCTYPE html>
+	<html ng-app="miapp">
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="">
-    <script src="ionic/js/ionic.bundle.js"></script>
-   </head>
+	<head>
+	    <meta charset="utf-8">
+	    <link rel="stylesheet" href="">
+	    <script src="ionic/js/ionic.bundle.js"></script>
+	</head>
 
-<body ng-controller="controll">
-	{{'hola'}}
-   {{dato.resultado}}
-   {{x}}
-   <button ng-click="enviar()">Enviar</button>
+	<body ng-controller="controll">
+		<ion-header-bar  class="bar-positive">
+		  <h1 class="title">Title!</h1>
+		 </ion-header-bar>
+		<button ng-click="enviar()">Enviar</button>
 
-    <script>
-       var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$http) { 
-       		$scope.dato={resultado:123};
-       		$scope.x=0;
-       		$scope.enviar=function(){
-       			$http.post('/miservicio.php',$scope.dato)
-       			.then(function(res){
-       				$scope.x=(res.data.respuesta);
-       			});
+	    <script>
+	       var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$http) { 
+	       		$scope.dato={resultado:123};
+	       		$scope.x=0;
+	       		$scope.enviar=function(){
+	       			$http.post('/miservicio.php',$scope.dato)
+	       			.then(function(res){
+	       				$scope.x=(res.data.respuesta);
+	       			});
 
-       		};
+	       		};
 
-       } ) ;
-   </script>
-</body>
+	       } ) ;
+	   </script>
+	</body>
 
-</html>
+	</html>
