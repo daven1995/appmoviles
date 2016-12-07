@@ -4,63 +4,94 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="ionic/css/ionic.min.css">
-    <script src="ionic/js/ionic.bundle.js"></script>
+    <script src="ionic/js/ionic.bundle.min.js"></script>
   </head>
 
   <body ng-controller="controll">
   	<ion-header-bar  class="bar-positive">
-     <h1 class="title">Sistema de Califiaciones</h1>
+     <h1 class="title">Sistema de Calificaciones</h1>
     </ion-header-bar>
 
     <ion-content>
       <form>
-        <ion-list>
+        <div class="list">
           <label class="item item-input item-stached-label">
-            <input type="text" name="estudiante" ng-model="formulario.estudiante" ng-change="epredictivo()" placeholder="Codigo del estudiante">
+            <input type="text" name="estudiante" ng-model="formulario.estudiante" ng-change="epredictivo()" placeholder="Estudiante">
           </label>
           <label class="item item-input item-stached-label">
-            <input type="text" name="materia" ng-model="formulario.materia" ng-change="mpredictivo()" placeholder="Materia">
+            <input type="text" name="codmateria" ng-model="formulario.codmateria" ng-change="mpredictivo()" placeholder="Cod. Materia" ng-hide="formulario.nomCodMateria">
           </label>
-          <label class="toggle">
+          <label class="item item-input item-stached-label">
+            <input type="text" name="nommateria" ng-model="formulario.nommateria" ng-change="mpredictivo()" placeholder="Nom. Materia" ng-show="formulario.nomCodMateria">
+          </label> 
+          <ion-toggle ng-model="formulario.nomCodMateria" toggle-class="toggle-calm">Codigo/Nombre</ion-toggle>
+         <!--  <label class="toggle">
             <input type="checkbox">
             <div class="track">
               <div class="handle"></div>
             </div>
-          </label>
-        </ion-list>
+          </label> -->
+        </div>
+        {{formulario.nomCodMateria}}
       </form>
 
     </ion-content>
 
     <ion-footer-bar   class="bar-positive">
-      <div class="buttons" ng-click="limpiar()">
-        <buttons class="button">Limpiar</buttons>
+      <div class="buttons" ng-click="limpiar()" >
+        <a class="button button-clear"item item-icon-left" href="#">
+          <i class="icon ion-wand">Limpiar</i>
+        </a>
       </div>
 
-      <h1 class="title"> -----</h1>
+       <div class="buttons" ng-click="buscar()">
 
-      <div class="buttons" ng-click="buscar()">
-        <button class="button">Buscar</button>
+        <a class="button button-clear"item item-icon-right" href="#">
+          <i class="icon ion-search">Buscar</i>
+        </a>
       </div>
     </ion-footer-bar>
 
+    <script type="text/ng-template" id='ventana1.html'>
+    <ion-modal-view>
+      <ion-header-bar  class="bar-positive">
+        <h1 class="title">Sistema de Calificaciones</h1>
+        <div class="buttons" ng-click="cerrar()>
+          <a class="button button-clear"item item-icon-left" href="#">
+            <i class="icon ion-close">Cerrar</i>
+          </a>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        {{resultado}}
+      </ion-content>
+    </ion-modal-view>
+    </script>
+
     <script>
-       var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$http) { 
-         $scope.dato={resultado:123};
-         $scope.x=0;
-         $scope.limpiar=function(){
-          alert('Alerta Limpiar');
-         }
-         $scope.enviar=function(){
-          $http.post('/miservicio.php',$scope.dato)
+       var miapp = angular.module('miapp', ['ionic']).controller('controll',function ($scope,$ionicModal) { 
+        $scope.formulario={estudiante:'',nommateria:'',codmateria:'',nomCodMateria:true}; 
+        $ionicModal.fromTemplateUrl('ventana1.html',
+          {scope:$scope.animation:'slide-in-up'})
+          .then(function(modal){$scope.ventana1=modal});
+        $scope.buscar=function(){
+          $http.post('miServicio.php',$scope.formulario)
           .then(function(res){
-           $scope.x=(res.data.respuesta);
-
-         });
-
+            $scope.respuesta=res.data.respuesta;
+            $scope.ventana1.show();
+          });
+          
         };
-
-      } ) ;
+        $scope.limpiar=function(){
+          $scope.formulario.estudiante='';
+          $scope.formulario.nommateria='';
+          $scope.formulario.codmateria='';
+          $scope.formulario.nomCodMateria='';
+        };
+        $scope.cerrar=function(){
+          $scope.ventana1.hide();
+        };
+         });
     </script>
   </body>
 </html>

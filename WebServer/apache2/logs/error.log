@@ -1,5 +1,7 @@
-[Fri Nov 25 16:46:53.990285 2016] [mpm_winnt:notice] [pid 7504:tid 684] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Fri Nov 25 16:46:53.990285 2016] [mpm_winnt:notice] [pid 7504:tid 684] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Fri Nov 25 16:46:53.990285 2016] [core:notice] [pid 7504:tid 684] AH00094: Command line: 'D:\\Documentos\\Otros David\\EPN - Codigos\\Aplicaciones Moviles\\appmoviles\\WebServer/apache2/bin/httpd_usbwv8.exe -d D:/Documentos/Otros David/EPN - Codigos/Aplicaciones Moviles/appmoviles/WebServer/apache2'
-[Fri Nov 25 16:46:54.013036 2016] [mpm_winnt:notice] [pid 7504:tid 684] AH00418: Parent: Created child process 10532
-[Fri Nov 25 16:46:54.577943 2016] [mpm_winnt:notice] [pid 10532:tid 720] AH00354: Child: Starting 64 worker threads.
+[Wed Dec 07 11:16:12.002534 2016] [mpm_winnt:notice] [pid 6340:tid 696] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Wed Dec 07 11:16:12.033145 2016] [mpm_winnt:notice] [pid 6340:tid 696] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Wed Dec 07 11:16:12.033145 2016] [core:notice] [pid 6340:tid 696] AH00094: Command line: 'D:\\Documentos\\Otros David\\EPN - Codigos\\Aplicaciones Moviles\\appmoviles\\WebServer/apache2/bin/httpd_usbwv8.exe -d D:/Documentos/Otros David/EPN - Codigos/Aplicaciones Moviles/appmoviles/WebServer/apache2'
+[Wed Dec 07 11:16:12.112974 2016] [mpm_winnt:notice] [pid 6340:tid 696] AH00418: Parent: Created child process 13648
+[Wed Dec 07 11:16:13.325465 2016] [mpm_winnt:notice] [pid 13648:tid 708] AH00354: Child: Starting 64 worker threads.
+[Wed Dec 07 12:29:58.498721 2016] [:error] [pid 13648:tid 1212] [client ::1:50002] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in D:\\Documentos\\Otros David\\EPN - Codigos\\Aplicaciones Moviles\\appmoviles\\WebServer\\root\\miservicio.php on line 10
+[Wed Dec 07 12:30:22.283700 2016] [:error] [pid 13648:tid 1216] [client ::1:50008] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in D:\\Documentos\\Otros David\\EPN - Codigos\\Aplicaciones Moviles\\appmoviles\\WebServer\\root\\miservicio.php on line 10
